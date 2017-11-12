@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.chase.tddkotlincalculator.presenter.CalcPresenter
-import com.chase.tddkotlincalculator.presenter.CalcView
 
 class CalcActivity : AppCompatActivity(), View.OnClickListener, CalcView {
     private lateinit var topDisplay: TextView
@@ -47,42 +46,12 @@ class CalcActivity : AppCompatActivity(), View.OnClickListener, CalcView {
         findViewById<Button>(R.id.btn_clear).setOnClickListener(this)
     }
 
-    override fun appendNumberToBottomDisplay(num: String) {
-        var currentBottom = bottomDisplay.text as String
-        if (currentBottom == "0") {
-            currentBottom = ""
-        }
-        if (topDisplay.text.contains('=')) {
-            topDisplay.text = currentBottom
-            bottomDisplay.text = num
-        } else {
-            val combineStrings = currentBottom + num
-            bottomDisplay.text = combineStrings
-        }
+    override fun putNumberInBottomDisplay(bottomString: String) {
+        bottomDisplay.text = bottomString
     }
 
-    override fun appendCalculationToTopDisplay(operator: String) {
-        val currentBottom = bottomDisplay.text as String
-        val currentTop = topDisplay.text as String
-        val lastIndexTop = currentTop.lastIndex
-
-        val lastCharTop = if (currentTop.isNotEmpty()) {
-            currentTop[lastIndexTop]
-        } else {
-            'x'
-        }
-
-        if (currentBottom.isEmpty() &&
-                lastCharTop == '+' || lastCharTop == '-' || lastCharTop == '*' || lastCharTop == '/') {
-            val newTop = currentTop.replaceRange(IntRange(lastIndexTop, lastIndexTop), operator)
-            topDisplay.text = newTop
-            return
-        }
-
-        bottomDisplay.text = operator
-        val combineStrings = "$currentTop $currentBottom $operator"
-        topDisplay.text = combineStrings
-        bottomDisplay.text = ""
+    override fun putEquationInTopDisplay(topString: String) {
+        topDisplay.text = topString
     }
 
 
@@ -97,21 +66,35 @@ class CalcActivity : AppCompatActivity(), View.OnClickListener, CalcView {
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.btn_0 -> appendNumberToBottomDisplay(getString(R.string.btn_0))
-            R.id.btn_1 -> appendNumberToBottomDisplay(getString(R.string.btn_1))
-            R.id.btn_2 -> appendNumberToBottomDisplay(getString(R.string.btn_2))
-            R.id.btn_3 -> appendNumberToBottomDisplay(getString(R.string.btn_3))
-            R.id.btn_4 -> appendNumberToBottomDisplay(getString(R.string.btn_4))
-            R.id.btn_5 -> appendNumberToBottomDisplay(getString(R.string.btn_5))
-            R.id.btn_6 -> appendNumberToBottomDisplay(getString(R.string.btn_6))
-            R.id.btn_7 -> appendNumberToBottomDisplay(getString(R.string.btn_7))
-            R.id.btn_8 -> appendNumberToBottomDisplay(getString(R.string.btn_8))
-            R.id.btn_9 -> appendNumberToBottomDisplay(getString(R.string.btn_9))
-            R.id.btn_add -> appendCalculationToTopDisplay("+")
-            R.id.btn_subtract -> appendCalculationToTopDisplay("-")
-            R.id.btn_multiply -> appendCalculationToTopDisplay("*")
-            R.id.btn_divide -> appendCalculationToTopDisplay("/")
-            R.id.btn_equals -> showCalculatedResult("3")
+            R.id.btn_0 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_0),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_1 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_1),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_2 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_2),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_3 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_3),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_4 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_4),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_5 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_5),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_6 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_6),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_7 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_7),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_8 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_8),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_9 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_9),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_add -> calcPresenter.checkToAppendTop(getString(R.string.btn_add),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_subtract -> calcPresenter.checkToAppendTop(getString(R.string.btn_minus),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_multiply -> calcPresenter.checkToAppendTop(getString(R.string.btn_mult),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_divide -> calcPresenter.checkToAppendTop(getString(R.string.btn_div),
+                    bottomDisplay.text as String, topDisplay.text as String)
+            R.id.btn_equals -> calcPresenter.getCalculation(bottomDisplay.text as String, topDisplay.text as String)
             R.id.btn_clear -> clearDisplays()
         }
     }
