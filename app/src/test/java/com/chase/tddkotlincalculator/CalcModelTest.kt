@@ -4,10 +4,11 @@ import com.chase.tddkotlincalculator.model.CalcModel
 import org.junit.Assert
 import org.junit.Test
 
+private const val VALUE_A = 2.0
+private const val VALUE_B = 3.0
+
 class CalcModelTest {
 
-    private val VALUE_A = 2.0
-    private val VALUE_B = 3.0
     private val calcModel = CalcModel()
 
     @Test

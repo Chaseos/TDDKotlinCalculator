@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff303030"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,9 +14,8 @@
         android:layout_weight="0.5"
         android:background="#fafafa"
         android:orientation="vertical"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp"
-        android:weightSum="1"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,7 +24,7 @@
             android:id="@+id/top_textview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.33"
+            android:layout_weight="0.25"
             android:textAlignment="viewEnd"
             android:textSize="24sp" />
 
@@ -34,10 +32,11 @@
             android:id="@+id/bottom_textview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.66"
+            android:layout_weight="0.75"
             android:textAlignment="viewEnd"
+            android:lines="2"
             android:textColor="@android:color/black"
-            android:textSize="48sp" />
+            android:textSize="40sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,9 +45,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_weight="0.125"
         android:orientation="horizontal"
-        android:weightSum="1"
         app:layout_constraintBottom_toTopOf="@+id/multiply_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,34 +53,39 @@
 
         <Button
             android:id="@+id/btn_7"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:text="@string/btn_7"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:text="@string/btn_8"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_9"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:text="@string/btn_9"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_divide"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25"
+            android:layout_weight="1"
             android:text="@string/btn_div"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
     </LinearLayout>
@@ -94,9 +96,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_weight="0.125"
         android:orientation="horizontal"
-        android:weightSum="1"
         app:layout_constraintBottom_toTopOf="@+id/minus_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,6 +108,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_4"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -116,6 +117,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_5"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -124,6 +126,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_6"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -132,6 +135,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_mult"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -141,9 +145,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_weight="0.125"
         android:orientation="horizontal"
-        android:weightSum="1"
         app:layout_constraintBottom_toTopOf="@+id/plus_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +157,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_1"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -163,6 +166,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_2"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -171,6 +175,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_3"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -179,6 +184,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_minus"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -188,9 +194,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_weight="0.125"
         android:orientation="horizontal"
-        android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -202,6 +206,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_0"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -210,6 +215,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_clear"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -217,7 +223,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.25"
+            android:lineSpacingExtra="0sp"
             android:text="@string/btn_equals"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <Button
@@ -226,6 +234,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="@string/btn_add"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
     </LinearLayout>
 

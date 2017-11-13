@@ -10,7 +10,7 @@ import com.chase.tddkotlincalculator.presenter.CalcPresenter
 class CalcActivity : AppCompatActivity(), View.OnClickListener, CalcView {
     private lateinit var topDisplay: TextView
     private lateinit var bottomDisplay: TextView
-    private lateinit var calcPresenter : CalcPresenter
+    private lateinit var calcPresenter: CalcPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,43 +59,38 @@ class CalcActivity : AppCompatActivity(), View.OnClickListener, CalcView {
         bottomDisplay.text = result
     }
 
-    override fun clearDisplays() {
-        topDisplay.text = ""
-        bottomDisplay.text = "0"
-    }
-
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.btn_0 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_0),
+            R.id.btn_0 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_0),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_1 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_1),
+            R.id.btn_1 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_1),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_2 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_2),
+            R.id.btn_2 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_2),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_3 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_3),
+            R.id.btn_3 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_3),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_4 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_4),
+            R.id.btn_4 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_4),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_5 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_5),
+            R.id.btn_5 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_5),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_6 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_6),
+            R.id.btn_6 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_6),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_7 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_7),
+            R.id.btn_7 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_7),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_8 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_8),
+            R.id.btn_8 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_8),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_9 -> calcPresenter.checkToAppendBottom(getString(R.string.btn_9),
+            R.id.btn_9 -> calcPresenter.checkAndAppendBottom(getString(R.string.btn_9),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_add -> calcPresenter.checkToAppendTop(getString(R.string.btn_add),
+            R.id.btn_add -> calcPresenter.checkAndAppendTop(getString(R.string.btn_add),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_subtract -> calcPresenter.checkToAppendTop(getString(R.string.btn_minus),
+            R.id.btn_subtract -> calcPresenter.checkAndAppendTop(getString(R.string.btn_minus),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_multiply -> calcPresenter.checkToAppendTop(getString(R.string.btn_mult),
+            R.id.btn_multiply -> calcPresenter.checkAndAppendTop(getString(R.string.btn_mult),
                     bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_divide -> calcPresenter.checkToAppendTop(getString(R.string.btn_div),
+            R.id.btn_divide -> calcPresenter.checkAndAppendTop(getString(R.string.btn_div),
                     bottomDisplay.text as String, topDisplay.text as String)
             R.id.btn_equals -> calcPresenter.getCalculation(bottomDisplay.text as String, topDisplay.text as String)
-            R.id.btn_clear -> clearDisplays()
+            R.id.btn_clear -> calcPresenter.checkAndClearDisplays()
         }
     }
 }
